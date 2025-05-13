@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+h1, h2 {
+    color: #333;
+}
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f0f0f0;
+}
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.btn-green {
+    background-color: #28a745;
+    color: white;
+}
+.btn-green:hover {
+    background-color: #218838;
+}
+.btn-blue {
+    background-color: #007bff;
+    color: white;
+}
+.btn-blue:hover {
+    background-color: #0056b3;
+}
+.btn-print {
+    background-color: #17a2b8;
+    color: white;
+}
+.btn-print:hover {
+    background-color: #138496;
+}
+.btn-print:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+.btn-delete {
+    background-color: #ff4d4f;
+    color: white;
+}
+.btn-delete:hover {
+    background-color: #d9363e;
+}
+select, input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+.item-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.item-row select {
+    flex: 2;
+}
+.item-row input {
+    flex: 1;
+}
+.item-row button {
+    flex: 1;
+}
+#selectedItemsTable {
+    margin-top: 10px;
+}
+.result {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}

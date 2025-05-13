@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Pengelolaan Stok</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/xlsx.full.min.js"></script>
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <div class="container">
+        <h1>Dashboard Admin</h1>
+        <button onclick="exitToIndex()" class="btn-blue">Keluar</button>
+
+        <!-- Form Input Barang -->
+        <div class="card">
+            <h2 id="formTitle">Input Barang Masuk</h2>
+            <form id="itemForm">
+                <input type="text" id="itemName" placeholder="Nama Barang" required>
+                <input type="date" id="itemDate" required>
+                <input type="number" id="itemBuyPrice" placeholder="Harga Beli" required>
+                <input type="number" id="itemSellPrice" placeholder="Harga Jual" required>
+                <input type="number" id="itemStock" placeholder="Stok Barang" min="0" required>
+                <input type="file" id="itemPhoto" accept="image/*">
+                <input type="hidden" id="editIndex" value="-1">
+                <div class="form-actions">
+                    <button type="button" onclick="resetForm()" class="btn-gray">Batal</button>
+                    <button type="button" onclick="cancelEdit()" class="btn-gray" id="cancelEditButton" style="display: none;">Batal Edit</button>
+                    <button type="submit" class="btn-green" id="submitButton">Tambah</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tabel Produk Masuk -->
+        <div class="card">
+            <h2>Produk Masuk</h2>
+            <button onclick="exportProductsToExcel()" class="btn-blue">Ekspor Produk ke Excel</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Tanggal Masuk</th>
+                        <th>Jumlah Barang</th>
+                        <th>Foto</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Grafik Keuntungan -->
+        <div class="card">
+            <h2>Grafik Keuntungan</h2>
+            <canvas id="profitChart"></canvas>
+        </div>
+
+        <!-- Tabel Transaksi -->
+        <div class="card">
+            <h2>Daftar Transaksi</h2>
+            <button onclick="exportToExcel()" class="btn-blue">Ekspor ke Excel</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Tanggal</th>
+                        <th>Harga Beli</th>
+                        <th>Harga Jual</th>
+                        <th>Keuntungan</th>
+                        <th>Foto</th>
+                        <th>Tipe</th>
+                        <th>Jumlah</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

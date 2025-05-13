@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kasir - Pengelolaan Stok</title>
+    <link rel="stylesheet" href="kasir.css">
+</head>
+<body>
+    <!-- Kasir Dashboard -->
+    <div class="container">
+        <h1>Dashboard Kasir</h1>
+        <button onclick="exitToIndex()" class="btn-blue">Keluar</button>
+
+        <!-- Daftar Barang -->
+        <div class="card">
+            <h2>Daftar Barang</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Harga Jual</th>
+                        <th>Stok Barang</th>
+                    </tr>
+                </thead>
+                <tbody id="itemTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Kalkulator Kasir -->
+        <div class="card">
+            <h2>Kalkulator Kasir</h2>
+            <form id="cashierForm">
+                <div id="itemSelection">
+                    <div class="item-row">
+                        <select class="sellItem" onchange="updateItemRows()">
+                            <option value="">Pilih Barang</option>
+                        </select>
+                        <input type="number" class="itemQuantity" placeholder="Jumlah" min="1">
+                        <button type="button" class="btn-delete" onclick="removeItemRow(this)">Hapus</button>
+                    </div>
+                </div>
+                <button type="button" onclick="addItemRow()" class="btn-blue">Tambah Barang</button>
+                <table id="selectedItemsTable">
+                    <thead>
+                        <tr>
+                            <th>Nama Barang</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="selectedItemsBody"></tbody>
+                </table>
+                <input type="number" id="customerMoney" placeholder="Uang Pelanggan" required>
+                <div id="changeResult" class="result"></div>
+                <button type="submit" class="btn-green">Jual & Hitung Kembalian</button>
+                <button type="button" id="printButton" onclick="printTransaction()" class="btn-print" disabled>Print Transaksi</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="kasir.js"></script>
+</body>
+</html>
